@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: task_api
+    ports:
+      - "5000:5000"
+    environment:
+      PG_URL: "postgres://postgres:niranjan%4012345@postgres:5432/taskdb"
+      JWT_SECRET: "myjwtsecret"
+    depends_on:
+      - postgres
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:16
+    container_name: pgdb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "niranjan@12345"
+      POSTGRES_DB: taskdb
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+networks:
+  backend:
+
+volumes:
+  pgdata:

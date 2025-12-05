@@ -14,11 +14,11 @@ app.use(express.json());
 db.authenticate().then(() => console.log("PostgreSQL Connected"));
 
 db.sync({ alter: true }).then(() =>
-  console.log("Database synced (auto-create tables)")
+  console.log("Database synced automatically")
 );
 
 app.use('/users', require('./routes/userRoutes'));
 app.use('/tasks', require('./routes/taskRoutes'));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running on ${PORT}`));

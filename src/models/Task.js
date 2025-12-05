@@ -6,8 +6,8 @@ const Task = sequelize.define('Task', {
   id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   title: { type: DataTypes.STRING, allowNull: false },
   description: { type: DataTypes.STRING },
-  priority: { type: DataTypes.ENUM('Low', 'Medium', 'High'), defaultValue: 'Low' },
-  status: { type: DataTypes.ENUM('Pending', 'In Progress', 'Done'), defaultValue: 'Pending' }
+  priority: { type: DataTypes.ENUM('Low','Medium','High'), defaultValue: 'Low' },
+  status: { type: DataTypes.ENUM('Pending','In Progress','Done'), defaultValue: 'Pending' }
 });
 
 User.hasMany(Task, { foreignKey: 'userId', onDelete: 'CASCADE' });

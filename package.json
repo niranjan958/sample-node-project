@@ -1,5 +1,5 @@
 {
-  "name": "task-management-api-postgres",
+  "name": "task-manager-api",
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
