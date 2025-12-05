@@ -1,0 +1,10 @@
+const express=require('express');
+const auth=require('../middleware/auth');
+const {createTask,getTasks,getTask,updateTask,deleteTask}=require('../controllers/taskController');
+const r=express.Router();
+r.post('/',auth,createTask);
+r.get('/',auth,getTasks);
+r.get('/:id',auth,getTask);
+r.put('/:id',auth,updateTask);
+r.delete('/:id',auth,deleteTask);
+module.exports=r;
